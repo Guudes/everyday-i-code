@@ -2,8 +2,6 @@ package com.guu.tasks;
 
 public class StringLengthSort {
 
-    private int count;
-
     public String[] stringLengthSort(String[] words) {
 
         while (true) {
@@ -19,12 +17,7 @@ public class StringLengthSort {
             if (move == false) {
                 break;
             }
-            count++;
         }
         return words;
-    }
-
-    public int getPassesNum() {
-        return count;
     }
 }

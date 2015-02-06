@@ -2,8 +2,6 @@ package com.guu.tasks;
 
 public class SelectSort {
 
-    private int count;
-
     public int[] selectSort(int[] numbers) {
 
         for (int i = 0; i < numbers.length - 1; i++) {
@@ -20,13 +18,8 @@ public class SelectSort {
                 numbers[i] = numbers[minPosition];
                 numbers[minPosition] = tmp;
             }
-            count++;
         }
         return numbers;
-    }
-
-    public int getPassesNum() {
-        return count;
     }
 }
 

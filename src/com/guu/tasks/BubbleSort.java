@@ -2,8 +2,6 @@ package com.guu.tasks;
 
 public class BubbleSort {
 
-    private int count;
-
     public int[] bubbleSort(int[] numbers) {
 
         while (true) {
@@ -16,15 +14,10 @@ public class BubbleSort {
                     move = true;
                 }
             }
-            if (move == false) {
+            if (!move) {
                 break;
             }
-            count++;
         }
         return numbers;
-    }
-
-    public int getPassesNum() {
-        return count;
     }
 }

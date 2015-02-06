@@ -6,56 +6,52 @@ import com.guu.tasks.*;
 public class Main {
     public static void main(String[] args) {
 
-        int[] numbers = {10, -2, 5, 3, 9, -1, 7, 4, 0, -5, 1, -4, 8, 2, -3, 6};
-        String[] capitName = {"Washington", "London", "Paris", "St.Petersburg", "Oslo", "Yokohama"};
+        if (args[0].equalsIgnoreCase("bubbleSort")) {
 
+            int[] bubbleArray = new int[args.length - 1];
+            for (int i = 0; i < bubbleArray.length; i++) {
+                try {
+                    bubbleArray[i] = Integer.parseInt(args[i + 1]);
+                } catch (NumberFormatException e) {
+                    System.err.println("Error: Wrong data type. Enter the number.");
+                    return;
+                }
+            }
 
-        System.out.println("Сортировка Bubble методом:");
+            System.out.println("Sorting with bubble method");
+            BubbleSort bubbleSort = new BubbleSort();
+            int[] resultBubble = bubbleSort.bubbleSort(bubbleArray);
+            for (int i = 0; i < resultBubble.length; i++) {
+                System.out.print(resultBubble[i] + " ");
+            }
 
-        BubbleSort bubbleSort = new BubbleSort();
-        int[] resultBubble = bubbleSort.bubbleSort(getArrayCopyNmb(numbers));
+        } else if (args[0].equalsIgnoreCase("selectSort")) {
+            System.out.println("Sorting with selection method");
+            int[] selectArray = new int[args.length - 1];
+            for (int i = 0; i < selectArray.length; i++) {
+                selectArray[i] = Integer.parseInt(args[i + 1]);
+            }
+            SelectSort selectSort = new SelectSort();
+            int[] resultSelect = selectSort.selectSort(selectArray);
+            for (int i = 0; i < resultSelect.length; i++) {
+                System.out.print(resultSelect[i] + " ");
+            }
 
-        for (int i = 0; i < resultBubble.length; i++) {
-            System.out.print(resultBubble[i] + " ");
+        } else if (args[0].equalsIgnoreCase("stringLengthSort")) {
+            System.out.println("Sorting with string length method");
+            String[] stringLengthArray = new String[args.length - 1];
+            for (int i = 0; i < stringLengthArray.length; i++) {
+                stringLengthArray[i] = args[i + 1];
+            }
+            StringLengthSort stringLengthSort = new StringLengthSort();
+            String[] resultStringLength = stringLengthSort.stringLengthSort(stringLengthArray);
+            for (int i = 0; i < resultStringLength.length; i++) {
+                System.out.print(resultStringLength[i] + " ");
+            }
+
+        } else {
+            System.err.println("Error: Unknown sorting method");
         }
-
-        System.out.println();
-        System.out.print("Циклов: " + bubbleSort.getPassesNum() + "\n\n");
-
-
-        System.out.println("Сортировка чисел поиском мин. значения:");
-
-        SelectSort selectSort = new SelectSort();
-        int[] resultSelecton = selectSort.selectSort(getArrayCopyNmb(numbers));
-
-        for (int i = 0; i < resultSelecton.length; i++) {
-            System.out.print(resultSelecton[i] + " ");
-        }
-
-        System.out.println();
-        System.out.print("Циклов: " + selectSort.getPassesNum() + "\n\n");
-
-
-        System.out.println("Сортировка строк по длине:");
-
-        StringLengthSort stringLengthSort = new StringLengthSort();
-        String[] resultStringLength = stringLengthSort.stringLengthSort(capitName);
-
-        for (int i = 0; i < resultStringLength.length; i++) {
-            System.out.print(resultStringLength[i] + " ");
-        }
-
-        System.out.println();
-        System.out.print("Циклов: " + stringLengthSort.getPassesNum() + "\n\n");
 
     }
-
-    private static int[] getArrayCopyNmb(int[] numbers) {
-        int[] nmbCopy = new int[numbers.length];
-        for (int i = 0; i < nmbCopy.length; i++) {
-            nmbCopy[i] = numbers[i];
-        }
-        return nmbCopy;
-    }
-
 }
