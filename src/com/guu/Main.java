@@ -1,6 +1,6 @@
 package com.guu;
 
-import com.guu.tasks.*;
+import com.guu.tasks.Sorting;
 import java.util.Arrays;
 
 
@@ -16,8 +16,8 @@ public class Main {
                 return;
             }
             System.out.println("Sorting with bubble method");
-            BubbleSort bubbleSort = new BubbleSort();
-            int[] resultBubble = bubbleSort.bubbleSort(bubbleArray);
+            Sorting sorting = new Sorting();
+            int[] resultBubble = sorting.bubbleSort(bubbleArray);
             intResultOut(resultBubble);
 
         } else if (args[0].equalsIgnoreCase("selectSort")) {
@@ -29,16 +29,16 @@ public class Main {
                 return;
             }
             System.out.println("Sorting with selection method");
-            SelectSort selectSort = new SelectSort();
-            int[] resultSelect = selectSort.selectSort(selectArray);
+            Sorting sorting = new Sorting();
+            int[] resultSelect = sorting.selectSort(selectArray);
             intResultOut(resultSelect);
 
         } else if (args[0].equalsIgnoreCase("stringLengthSort")) {
 
             System.out.println("Sorting with string length method");
             String[] stringLengthArray = Arrays.copyOfRange(args, 1, args.length);
-            StringLengthSort stringLengthSort = new StringLengthSort();
-            String[] resultStringLength = stringLengthSort.stringLengthSort(stringLengthArray);
+            Sorting sorting = new Sorting();
+            String[] resultStringLength = sorting.stringLengthSort(stringLengthArray);
             stringResultOut(resultStringLength);
 
         } else {
