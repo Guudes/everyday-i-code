@@ -1,6 +1,6 @@
 package com.guu.tasks;
 
-public class SelectionSort {
+public class SelectSort {
 
     private int count;
 
@@ -15,7 +15,6 @@ public class SelectionSort {
                     min = numbers[j];
                 }
             }
-
             if (i != minPosition) {
                 int tmp = numbers[i];
                 numbers[i] = numbers[minPosition];
@@ -23,13 +22,11 @@ public class SelectionSort {
             }
             count++;
         }
-
         return numbers;
     }
 
     public int getPassesNum() {
         return count;
     }
-
 }
 
