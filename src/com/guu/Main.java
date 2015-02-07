@@ -16,9 +16,9 @@ public class Main {
                 return;
             }
             System.out.println("Sorting with bubble method");
-            Sorting sorting = new Sorting();
-            int[] resultBubble = sorting.bubbleSort(bubbleArray);
+            int[] resultBubble = Sorting.bubbleSort(bubbleArray);
             intResultOut(resultBubble);
+            System.out.print("Время выполнения сортировки: " + Sorting.returnNanoTime() + " наносекунд");
 
         } else if (args[0].equalsIgnoreCase("selectSort")) {
             int[] selectArray;
@@ -29,17 +29,17 @@ public class Main {
                 return;
             }
             System.out.println("Sorting with selection method");
-            Sorting sorting = new Sorting();
-            int[] resultSelect = sorting.selectSort(selectArray);
+            int[] resultSelect = Sorting.selectSort(selectArray);
             intResultOut(resultSelect);
+            System.out.print("Время выполнения сортировки: " + Sorting.returnNanoTime() + " наносекунд");
 
         } else if (args[0].equalsIgnoreCase("stringLengthSort")) {
 
             System.out.println("Sorting with string length method");
             String[] stringLengthArray = Arrays.copyOfRange(args, 1, args.length);
-            Sorting sorting = new Sorting();
-            String[] resultStringLength = sorting.stringLengthSort(stringLengthArray);
+            String[] resultStringLength = Sorting.stringLengthSort(stringLengthArray);
             stringResultOut(resultStringLength);
+            System.out.print("Время выполнения сортировки: " + Sorting.returnNanoTime() + " наносекунд");
 
         } else {
             System.err.println("Error: Unknown sorting method");

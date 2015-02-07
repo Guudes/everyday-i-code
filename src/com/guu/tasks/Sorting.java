@@ -2,7 +2,11 @@ package com.guu.tasks;
 
 public class Sorting {
 
+    private static long start;
+    private static long elapsedTime;
+
     public static int[] bubbleSort(int[] numbers) {
+        start = System.nanoTime();
 
         while (true) {
             boolean move = false;
@@ -18,10 +22,13 @@ public class Sorting {
                 break;
             }
         }
+
+        elapsedTime = System.nanoTime() - start;
         return numbers;
     }
 
     public static int[] selectSort(int[] numbers) {
+        start = System.nanoTime();
 
         for (int i = 0; i < numbers.length - 1; i++) {
             int min = numbers[i];
@@ -38,10 +45,12 @@ public class Sorting {
                 numbers[minPosition] = tmp;
             }
         }
+        elapsedTime = System.nanoTime() - start;
         return numbers;
     }
 
     public static String[] stringLengthSort(String[] words) {
+        start = System.nanoTime();
 
         while (true) {
             boolean move = false;
@@ -57,7 +66,12 @@ public class Sorting {
                 break;
             }
         }
+        elapsedTime = System.nanoTime() - start;
         return words;
+    }
+
+    public static long returnNanoTime() {
+        return elapsedTime;
     }
 
 }
